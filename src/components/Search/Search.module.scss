@@ -1,0 +1,40 @@
+.root {
+   position: relative;
+   display: inline-block;
+   max-width: 400px;
+   width: 100%;
+}
+.input {
+   width: 100%;
+   padding: 10px 18px;
+   padding-left: 35px;
+   border: 1px solid rgba(0, 0, 0, 0.3);
+   font-size: 16px;
+   border-radius: 15px;
+
+   &:focus {
+      border-color: rgba(0, 0, 0, 0.6);
+   }
+}
+.icon_search {
+   width: 26px;
+   height: 26px;
+   position: absolute;
+   left: 5px;
+   top: 10px;
+}
+.icon_close {
+   cursor: pointer;
+   width: 26px;
+   height: 26px;
+   position: absolute;
+   right: 5px;
+   top: 10px;
+   & path {
+      transition: 0.2s fill ease-in-out;
+   }
+
+   &:hover path {
+      fill: #fe5f1e;
+   }
+}
