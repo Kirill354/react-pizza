@@ -1,12 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 
-import { CartEmpty, CartItem } from '../components/index';
+import { CartEmpty, CartItem, CartSuccessOrder } from '../components/index';
 import { clearItems, selectCart } from '../redux/slices/cartSlice';
 import { getNumOfCartItems } from '../utils/getNumOfCartItems';
 
 const Cart: React.FC = () => {
+   const [successOrder, setSuccessOrder] = useState<boolean>(false);
    const dispatch = useDispatch();
    const { items, totalPrice } = useSelector(selectCart);
    const numberOfItems = getNumOfCartItems(items);
@@ -16,6 +17,19 @@ const Cart: React.FC = () => {
          dispatch(clearItems());
       }
    };
+
+   const onCheckOutClick = () => {
+      setSuccessOrder(true);
+      dispatch(clearItems());
+   };
+
+   if (successOrder) {
+      return (
+         <div className="container container--cart">
+            <CartSuccessOrder />
+         </div>
+      );
+   }
 
    return (
       <div className="container container--cart">
@@ -131,7 +145,7 @@ const Cart: React.FC = () => {
 
                         <span>Вернуться назад</span>
                      </Link>
-                     <button className="button pay-btn">
+                     <button onClick={onCheckOutClick} className="button pay-btn">
                         <span>Оплатить сейчас</span>
                      </button>
                   </div>

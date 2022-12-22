@@ -103,7 +103,7 @@ const Home: React.FC = () => {
                <div className="content__items">
                   {status === 'loading'
                      ? [...new Array(4)].map((_, index) => <Skeleton key={index} />)
-                     : items.map((item: any) => <PizzaBlock key={item.id} {...item} />)}
+                     : items.map((item) => <PizzaBlock key={item.id} {...item} />)}
                </div>
                <Pagination />
             </>

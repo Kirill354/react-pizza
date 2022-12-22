@@ -7,6 +7,7 @@ export * from './PizzaInfo/SkeletonPizInf';
 export * from './Search';
 export * from './CartEmpty';
 export * from './CartItem';
+export * from './CartSuccessOrder';
 export * from './Categories';
 export * from './Header';
 export * from './Sort';
